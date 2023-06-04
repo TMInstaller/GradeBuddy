@@ -20,6 +20,9 @@ dependencies {
     // JSP 관련 의존성
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'javax.servlet:jstl'
+    // Lombok 관련 의존성 추가
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
 
 tasks.named('test') {

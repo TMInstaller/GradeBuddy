@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
-    // 비 로그인 상태일 때
+
     @GetMapping("/users/login")
     public String loginPage() {
         return "users/users_login";
@@ -31,6 +31,5 @@ public class UserController {
     public String editProfilePage() {
         return "users/users_edit_profile";
     }
-
 
 }

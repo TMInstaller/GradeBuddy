@@ -1,0 +1,5 @@
+<mapper namespace="ac.tukorea.gradebuddy.domain.users.UserDao">
+    <select id="getAllUsers" resultType="ac.tukorea.gradebuddy.domain.users.User">
+        SELECT * FROM users
+    </select>
+</mapper>

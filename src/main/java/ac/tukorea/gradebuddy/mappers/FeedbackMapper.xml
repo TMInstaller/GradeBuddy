@@ -1,0 +1,5 @@
+<mapper namespace="ac.tukorea.gradebuddy.domain.feedbacks.FeedbackDao">
+    <select id="getAllFeedbacks" resultType="ac.tukorea.gradebuddy.domain.feedbacks.Feedback">
+        SELECT * FROM feedbacks
+    </select>
+</mapper>

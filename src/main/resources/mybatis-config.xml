@@ -7,7 +7,7 @@
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="org.mariadb.jdbc.Driver"/>
                 <property name="url" value="jdbc:mariadb://localhost:3306/grade_buddy"/>
                 <property name="username" value="buddy_user"/>
                 <property name="password" value="buddy_password_0317"/>
@@ -17,7 +17,9 @@
 
     <mappers>
         <!-- 매퍼 파일 위치 설정 -->
-        <mapper resource="ac/tukorea/gradebuddy/mappers/UserMapper.xml"/>
-        <!-- 기타 매퍼 파일들을 여기에 추가 -->
+        <mapper resource="mappers/AssignmentMapper.xml"/>
+        <mapper resource="mappers/FeedbackMapper.xml"/>
+        <mapper resource="mappers/SubmissionMapper.xml"/>
+        <mapper resource="mappers/UserMapper.xml"/>
     </mappers>
 </configuration>

@@ -5,7 +5,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class UserDao {
@@ -19,5 +21,12 @@ public class UserDao {
 
     public List<User> getAllUsers() {
         return sqlSession.selectList("getAllUsers");
+    }
+
+    public User findUserByEmailAndPassword(String email, String password) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("email", email);
+        params.put("password", password);
+        return sqlSession.selectOne("findUserByEmailAndPassword", params);
     }
 }

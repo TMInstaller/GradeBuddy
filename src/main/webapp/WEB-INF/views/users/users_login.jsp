@@ -26,7 +26,8 @@
         </form>
         <!--회원가입 페이지로 연결하는 버튼 작업중-->
         <input class="button_register_page" type="button"
-               onclick="href='${pageContext.request.contextPath}/users/register'" value="회원가입">
+               onclick="window.location.href='${pageContext.request.contextPath}/users/register'" value="회원가입">
+
     </div>
 </div>
 </body>

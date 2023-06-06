@@ -24,6 +24,24 @@ public class UserController {
         return "users/users_login";
     }
 
+    @PostMapping("/loginProcess")
+    public String loginProcess(HttpServletRequest request, HttpSession session) {
+        // 로그인 관련 프로세스
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        // 이메일과 비밀번호로 사용자 정보를 조회합니다.
+        User user = userService.findUserByEmailAndPassword(email, password);
+
+        if (user != null) {
+            session.setAttribute("user", user);
+            return "redirect:/";
+        } else {
+            // 로그인 실패
+            return "redirect:/users/login";
+        }
+    }
+
     @GetMapping("/users/logout")
     public String logoutPage() {
         return "users/users_logout";
@@ -44,21 +62,5 @@ public class UserController {
         return "users/users_edit_profile";
     }
 
-    // 로그인 관련 프로세스
-    @PostMapping("/loginProcess")
-    public String loginProcess(HttpServletRequest request, HttpSession session) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
 
-        // 이메일과 비밀번호로 사용자 정보를 조회합니다.
-        User user = userService.findUserByEmailAndPassword(email, password);
-
-        if(user != null){
-            session.setAttribute("user", user);
-            return "redirect:/";
-        } else {
-            // 로그인 실패
-            return "redirect:/users/login";
-        }
-    }
 }

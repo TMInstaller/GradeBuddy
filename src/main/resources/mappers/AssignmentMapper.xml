@@ -1,5 +1,0 @@
-<mapper namespace="ac.tukorea.gradebuddy.domain.assignments.AssignmentDao">
-    <select id="getAllAssignments" resultType="ac.tukorea.gradebuddy.domain.assignments.Assignment">
-        SELECT * FROM assignments
-    </select>
-</mapper>

@@ -1,5 +1,0 @@
-<mapper namespace="ac.tukorea.gradebuddy.domain.submissions.SubmissionDao">
-    <select id="getAllSubmissions" resultType="ac.tukorea.gradebuddy.domain.submissions.Submission">
-        SELECT * FROM submissions
-    </select>
-</mapper>

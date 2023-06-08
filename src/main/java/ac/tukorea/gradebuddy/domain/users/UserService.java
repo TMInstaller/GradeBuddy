@@ -16,4 +16,12 @@ public class UserService {
     public User findUserByEmailAndPassword(String email, String password) {
         return userMapper.findUserByEmailAndPassword(email, password);
     }
+
+    public User findUserByEmail(String email) {
+        return userMapper.findUserByEmail(email);
+    }
+
+    public void createUser(User user) {
+        userMapper.createUser(user);
+    }
 }

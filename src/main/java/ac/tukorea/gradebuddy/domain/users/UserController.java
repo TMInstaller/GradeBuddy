@@ -2,12 +2,13 @@
 package ac.tukorea.gradebuddy.domain.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -42,15 +43,39 @@ public class UserController {
         }
     }
 
-    @GetMapping("/users/logout")
-    public String logoutPage() {
-        return "users/users_logout";
+    @GetMapping("/logoutProcess")
+    public String logoutProcess(HttpSession session) {
+        session.invalidate();  // 세션을 무효화합니다.
+        return "redirect:/";  // 홈 페이지로 리다이렉트합니다.
     }
 
     @GetMapping("/users/register")
     public String registerPage() {
         return "users/users_register";
     }
+
+    @PostMapping("/checkEmail")
+    public ResponseEntity<Map<String, Boolean>> checkEmail(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        boolean exists = (userService.findUserByEmail(email) != null);
+        return ResponseEntity.ok(Map.of("exists", exists));
+    }
+
+    @PostMapping("/registerProcess")
+    public String registerProcess(@ModelAttribute User user) {
+        // 이미 존재하는 이메일인지 체크
+        if (userService.findUserByEmail(user.getEmail()) != null) {
+            // 이미 존재하는 이메일인 경우 에러 처리를 하고 다시 회원 가입 페이지로 리다이렉트
+            return "redirect:/users/register?error=true";
+        }
+
+        // 새로운 사용자를 데이터베이스에 추가
+        userService.createUser(user);
+
+        // 회원 가입 성공 후, 홈 페이지로 리다이렉트
+        return "redirect:/";
+    }
+
 
     @GetMapping("/users/profile")
     public String profilePage() {

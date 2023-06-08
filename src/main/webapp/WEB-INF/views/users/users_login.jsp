@@ -1,10 +1,10 @@
 <!--이 페이지는 사용자가 로그인 할 수 있는 폼을 제공합니다.-->
-<!-- users/login.jsp -->
+<!-- users/login -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MainPage</title>
+    <title>Login</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/assets/css/global/global_setting.css">
     <link rel="stylesheet" type="text/css"

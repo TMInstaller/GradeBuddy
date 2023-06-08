@@ -24,7 +24,7 @@
             <input class="form_password_field" type="password" id="password" name="password"><br>
             <input class="form_submit_button" type="submit" value="로그인">
         </form>
-        <!--회원가입 페이지로 연결하는 버튼 작업중-->
+        <!--회원가입 이동 버튼-->
         <input class="button_register_page" type="button"
                onclick="window.location.href='${pageContext.request.contextPath}/users/register'" value="회원가입">
 

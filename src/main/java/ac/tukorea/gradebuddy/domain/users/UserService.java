@@ -24,4 +24,8 @@ public class UserService {
     public void createUser(User user) {
         userMapper.createUser(user);
     }
+
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
+    }
 }

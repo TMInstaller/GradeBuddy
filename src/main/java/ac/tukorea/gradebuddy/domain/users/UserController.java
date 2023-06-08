@@ -4,7 +4,9 @@ package ac.tukorea.gradebuddy.domain.users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -76,10 +78,29 @@ public class UserController {
         return "redirect:/";
     }
 
-
     @GetMapping("/users/profile")
-    public String profilePage() {
-        return "users/users_profile";
+    public String profilePage(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user"); // 세션에서 사용자 정보를 가져옵니다.
+        if (user != null) {
+            model.addAttribute("user", user); // 사용자 정보를 Model에 추가합니다.
+        }
+        return "users/users_profile"; // 사용자 정보를 보여줄 페이지를 반환합니다.
+    }
+
+    @GetMapping("/users/check_password")
+    public String checkPasswordPage() {
+        return "users/users_check_password";
+    }
+
+    @PostMapping("/checkPassword")
+    public String checkPassword(HttpSession session, @RequestParam String password, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user.getPassword().equals(password)) {
+            return "redirect:/users/edit_profile"; // 비밀번호가 일치하면 프로필 편집 페이지로 리다이렉트
+        } else {
+            model.addAttribute("error", "비밀번호가 일치하지 않습니다.");
+            return "users/users_password_check"; // 비밀번호가 일치하지 않으면 에러 메시지를 보여주고 다시 비밀번호 확인 페이지로 이동
+        }
     }
 
     @GetMapping("/users/edit_profile")
@@ -87,5 +108,15 @@ public class UserController {
         return "users/users_edit_profile";
     }
 
+    @PostMapping("/updateProfile")
+    public String updateProfile(HttpSession session, @RequestParam String email, @RequestParam String username, Model model) {
+        User user = (User) session.getAttribute("user");
+        user.setUser_id(user.getUser_id());
+        user.setEmail(email);
+        user.setUsername(username);
+        userService.updateUser(user); // 사용자 정보를 업데이트하는 메소드를 구현해야 합니다.
+        model.addAttribute("success", "프로필이 성공적으로 업데이트되었습니다.");
+        return "users/users_profile";
+    }
 
 }

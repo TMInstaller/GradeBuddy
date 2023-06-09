@@ -25,7 +25,6 @@ public class AssignmentController {
     public String assignmentListPage(Model model) {
         List<Assignment> assignments = assignmentService.getAllAssignments();
         model.addAttribute("assignments", assignments);
-        System.out.println(assignments);
         return "assignments/assignments_list";
     }
 
@@ -33,6 +32,7 @@ public class AssignmentController {
     public String assignmentDetailPage(@PathVariable Integer id, Model model) {
         Assignment assignment = assignmentService.getAssignmentById(id);
         model.addAttribute("assignment", assignment);
+        System.out.println(assignment);
         return "assignments/assignments_detail";
     }
 

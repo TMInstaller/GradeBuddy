@@ -14,6 +14,13 @@ public interface AssignmentMapper {
 
     // Read (SELECT)
     @Select("SELECT * FROM assignments WHERE assignment_id = #{assignment_id}")
+    @Results({
+            @Result(property = "assignmentId", column = "assignment_id"),
+            @Result(property = "userId", column = "user_id"),
+            @Result(property = "assignmentTitle", column = "assignment_title"),
+            @Result(property = "assignmentDescription", column = "assignment_description"),
+            @Result(property = "assignmentDeadline", column = "assignment_deadline")
+    })
     Assignment getAssignmentById(Integer assignment_id);
 
     // Read (SELECT) all assignments

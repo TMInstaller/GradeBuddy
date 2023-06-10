@@ -4,10 +4,7 @@ package ac.tukorea.gradebuddy.domain.assignments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,7 +29,6 @@ public class AssignmentController {
     public String assignmentDetailPage(@PathVariable Integer id, Model model) {
         Assignment assignment = assignmentService.getAssignmentById(id);
         model.addAttribute("assignment", assignment);
-        System.out.println(assignment);
         return "assignments/assignments_detail";
     }
 
@@ -55,10 +51,10 @@ public class AssignmentController {
     }
 
     @PostMapping("/assignments/edit/{id}")
-    public String updateAssignment(@PathVariable Integer id, @ModelAttribute Assignment assignment) {
+    public @ResponseBody Assignment updateAssignment(@PathVariable Integer id, @RequestBody Assignment assignment) {
         assignment.setAssignmentId(id);
         assignmentService.updateAssignment(assignment);
-        return "redirect:/assignments/detail/" + id;
+        return assignment;
     }
 
     @GetMapping("/assignments/delete/{id}")

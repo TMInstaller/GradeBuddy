@@ -25,7 +25,6 @@ public class AssignmentService {
     }
 
     public List<Assignment> getAllAssignments() {
-        System.out.println("Service 확인" + assignmentMapper.getAllAssignments());
         return assignmentMapper.getAllAssignments();
     }
 

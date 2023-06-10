@@ -35,9 +35,16 @@ public interface AssignmentMapper {
     List<Assignment> getAllAssignments();
 
     // Update (UPDATE)
-    @Update("UPDATE assignments SET assignment_title = #{assignment_title}, " +
-            "assignment_description = #{assignment_description}, assignment_deadline = #{assignment_deadline} " +
-            "WHERE assignment_id = #{assignment_id}")
+    @Update("UPDATE assignments SET assignment_title = #{assignmentTitle}, " +
+            "assignment_description = #{assignmentDescription}, assignment_deadline = #{assignmentDeadline} " +
+            "WHERE assignment_id = #{assignmentId}")
+    @Results({
+            @Result(property = "assignmentId", column = "assignment_id"),
+            @Result(property = "userId", column = "user_id"),
+            @Result(property = "assignmentTitle", column = "assignment_title"),
+            @Result(property = "assignmentDescription", column = "assignment_description"),
+            @Result(property = "assignmentDeadline", column = "assignment_deadline")
+    })
     void updateAssignment(Assignment assignment);
 
     // Delete (DELETE)

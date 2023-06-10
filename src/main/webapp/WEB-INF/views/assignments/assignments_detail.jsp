@@ -21,7 +21,7 @@
         <p>설명: ${assignment.assignmentDescription}</p>
         <p>마감기한: ${assignment.assignmentDeadline}</p>
     </div>
-    <a href="${pageContext.request.contextPath}/assignments/edit">Edit this assignment</a>
+    <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}">Edit this assignment</a>
 </div>
 </body>
 </html>

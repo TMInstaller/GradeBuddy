@@ -8,8 +8,15 @@ import java.util.List;
 public interface AssignmentMapper {
     // Create (INSERT)
     @Insert("INSERT INTO assignments (user_id, assignment_title, assignment_description, assignment_deadline) " +
-            "VALUES (#{user_id}, #{assignment_title}, #{assignment_description}, #{assignment_deadline})")
-    @Options(useGeneratedKeys = true, keyProperty = "assignment_id")
+            "VALUES (#{userId}, #{assignmentTitle}, #{assignmentDescription}, #{assignmentDeadline})")
+    @Options(useGeneratedKeys = true, keyProperty = "assignmentId")
+    @Results({
+            @Result(property = "assignmentId", column = "assignment_id"),
+            @Result(property = "userId", column = "user_id"),
+            @Result(property = "assignmentTitle", column = "assignment_title"),
+            @Result(property = "assignmentDescription", column = "assignment_description"),
+            @Result(property = "assignmentDeadline", column = "assignment_deadline")
+    })
     void createAssignment(Assignment assignment);
 
     // Read (SELECT)

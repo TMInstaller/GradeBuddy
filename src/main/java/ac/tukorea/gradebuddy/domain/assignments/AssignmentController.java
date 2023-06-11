@@ -56,7 +56,6 @@ public class AssignmentController {
         submission.setSubmissionTime(assignment.getAssignmentDeadline());
         submissionService.createSubmission(submission);
 
-        System.out.println(submission);
         return "redirect:/assignments/list";
     }
 

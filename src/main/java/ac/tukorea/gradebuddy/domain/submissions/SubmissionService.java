@@ -4,6 +4,8 @@ package ac.tukorea.gradebuddy.domain.submissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SubmissionService {
     private final SubmissionMapper submissionMapper;
@@ -15,5 +17,9 @@ public class SubmissionService {
 
     public void createSubmission(Submission submission) {
         submissionMapper.createSubmission(submission);
+    }
+
+    public List<Submission> getAllSubmissions() {
+        return submissionMapper.getAllSubmissions();
     }
 }

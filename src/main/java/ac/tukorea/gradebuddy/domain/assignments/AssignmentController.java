@@ -1,6 +1,8 @@
 // Controller: 사용자의 요청을 받아 해당 요청을 처리하기 위한 비즈니스 로직을 서비스에 위임하고, 처리 결과를 사용자에게 응답으로 반환합니다.
 package ac.tukorea.gradebuddy.domain.assignments;
 
+import ac.tukorea.gradebuddy.domain.submissions.Submission;
+import ac.tukorea.gradebuddy.domain.submissions.SubmissionService;
 import ac.tukorea.gradebuddy.domain.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +16,12 @@ import java.util.List;
 public class AssignmentController {
 
     private final AssignmentService assignmentService;
+    private final SubmissionService submissionService;
 
     @Autowired
-    public AssignmentController(AssignmentService assignmentService) {
+    public AssignmentController(AssignmentService assignmentService , SubmissionService submissionService) {
         this.assignmentService = assignmentService;
+        this.submissionService = submissionService;
     }
 
     @GetMapping("/assignments/list")
@@ -45,6 +49,14 @@ public class AssignmentController {
         if(user == null) return "redirect:/users/login";
         assignment.setUserId(user.getUser_id());
         assignmentService.createAssignment(assignment);
+
+        Submission submission = new Submission();
+        submission.setUserId(user.getUser_id());
+        submission.setAssignmentId(assignment.getAssignmentId());
+        submission.setSubmissionTime(assignment.getAssignmentDeadline());
+        submissionService.createSubmission(submission);
+
+        System.out.println(submission);
         return "redirect:/assignments/list";
     }
 

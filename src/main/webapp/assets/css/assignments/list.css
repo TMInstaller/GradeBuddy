@@ -1,0 +1,66 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.assignment_list_title {
+    margin-bottom: 30px;
+    color: #6c757d;
+    font-size: 2.5em;
+}
+
+.assignment_header {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.assignments_table {
+    width: 80%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+.assignments_table thead th {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+}
+
+.assignments_table tbody td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.assignments_table tbody td a {
+    color: #007bff;
+}
+
+.assignments_table tbody td a:hover {
+    color: #0056b3;
+}
+
+.create_button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 3vh;
+}
+
+.create_button:hover {
+    background-color: #0056b3;
+}
+
+.description {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

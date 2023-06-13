@@ -6,22 +6,35 @@
     <title>AssignmentList</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/assets/css/global/global_setting.css">
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/assets/css/assignments/list.css">
 </head>
 <body>
 <div class="header">
     <%@ include file="../global/header.jsp" %>
 </div>
 <div class="content">
-    <h1>AssignmentsList</h1>
+    <h1 class="assignment_list_title">제출 과제 목록</h1>
+    <a href="${pageContext.request.contextPath}/assignments/create" class="create_button">Create a new assignment</a>
     <jsp:useBean id="assignments" scope="request" type="java.util.List"/>
-    <c:forEach var="assignment" items="${assignments}">
-        <div>
-            <h2>제목: <a href="${pageContext.request.contextPath}/assignments/detail/${assignment.assignmentId}">${assignment.assignmentTitle}</a></h2>
-            <p>설명: ${assignment.assignmentDescription}</p>
-            <p>마감기한: ${assignment.assignmentDeadline}</p>
-        </div>
-    </c:forEach>
-    <a href="${pageContext.request.contextPath}/assignments/create">Create a new assignment</a>
+    <table class="assignments_table">
+        <thead>
+        <tr>
+            <th>제출 과제명</th>
+            <th>내용</th>
+            <th>마감기한</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="assignment" items="${assignments}">
+            <tr>
+                <td class="description"><a href="${pageContext.request.contextPath}/assignments/detail/${assignment.assignmentId}">${assignment.assignmentTitle}</a></td>
+                <td class="description">${assignment.assignmentDescription}</td>
+                <td>${assignment.assignmentDeadline}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

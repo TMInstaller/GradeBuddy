@@ -11,7 +11,7 @@
                 <a href="${pageContext.request.contextPath}/users/login">로그인</a>
                 <a href="${pageContext.request.contextPath}/users/register">회원가입</a>
                 <a href="${pageContext.request.contextPath}/assignments/list">과제</a>
-                <a href="${pageContext.request.contextPath}/submissions/list">제출물</a>
+                <a href="${pageContext.request.contextPath}/submissions/list">제출기록</a>
                 <a href="${pageContext.request.contextPath}/feedbacks/list">피드백</a>
             </c:when>
             <c:otherwise>

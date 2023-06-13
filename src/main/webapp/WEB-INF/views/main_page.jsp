@@ -14,14 +14,6 @@
 </div>
 <div class="content">
     <h1>MainPage</h1> <br>
-    <c:choose>
-        <c:when test="${not empty sessionScope.user}">
-            <h2>${sessionScope.user.username}님, 환영합니다!</h2>
-        </c:when>
-        <c:otherwise>
-            <h2>로그인을 해주세요.</h2>
-        </c:otherwise>
-    </c:choose>
     <a href="users/login">로그인 페이지로 이동하기</a> <br>
     <a href="users/register">회원가입 페이지로 이동하기</a> <br>
     <a href="assignments/list">과제 페이지로 이동하기</a> <br>

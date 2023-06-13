@@ -15,19 +15,22 @@
     <%@ include file="../global/header.jsp" %>
 </div>
 <div class="content">
-    <h1>로그인</h1>
+    <h1 class="login_title">로그인</h1>
     <div class="login_form">
         <form action="${pageContext.request.contextPath}/loginProcess" method="post">
-            <label class="form_email_name" for="email">이메일</label><br>
-            <input class="form_email_field" type="email" id="email" name="email"><br>
-            <label class="form_password_name" for="password">비밀번호</label><br>
-            <input class="form_password_field" type="password" id="password" name="password"><br>
-            <input class="form_submit_button" type="submit" value="로그인">
+            <div class="input_field">
+                <label class="input_label" for="email">이메일</label>
+                <input class="input_text" type="email" id="email" name="email">&nbsp;<br>
+            </div>
+            <div class="input_field">
+                <label class="input_label" for="password">비밀번호</label>
+                <input class="input_text" type="password" id="password" name="password">&nbsp;<br>
+            </div>
+            <div class="submit_field">
+                <input class="submit_button" type="submit" value="로그인">
+            </div>
         </form>
-        <!--회원가입 이동 버튼-->
-        <input class="button_register_page" type="button"
-               onclick="window.location.href='${pageContext.request.contextPath}/users/register'" value="회원가입">
-
+        <button class="button_register" onclick="window.location.href='${pageContext.request.contextPath}/users/register'">계정이 없으신가요?</button>
     </div>
 </div>
 </body>

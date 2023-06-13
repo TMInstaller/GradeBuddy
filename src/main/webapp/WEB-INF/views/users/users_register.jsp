@@ -15,33 +15,35 @@
     <%@ include file="../global/header.jsp" %>
 </div>
 <div class="content">
-    <h1>UsersRegister</h1>
-    <form action="${pageContext.request.contextPath}/registerProcess" method="post" class="register_form">
-        <div class="form_group">
-            <label for="email" class="form_label">Email:</label>
-            <input type="email" id="email" name="email" required class="form_input">
-            <button id="emailCheck" class="form_button">Email 확인</button>
-        </div>
+    <h1 class="register_title">회원가입</h1>
+    <div class="register_form">
+        <form action="${pageContext.request.contextPath}/registerProcess" method="post">
+            <div class="input_field">
+                <label class="input_label" for="email">Email</label>
+                <input class="input_text" type="email" id="email" name="email" required><br>
+                <button id="emailCheck" class="email_button">Email 확인</button>
+            </div>
 
-        <div class="form_group">
-            <label for="username" class="form_label">Username:</label>
-            <input type="text" id="username" name="username" required class="form_input">
-        </div>
+            <div class="input_field">
+                <label class="input_label" for="username">Username</label>
+                <input class="input_text" type="text" id="username" name="username" required><br>
+            </div>
 
-        <div class="form_group">
-            <label for="password" class="form_label">Password:</label>
-            <input type="password" id="password" name="password" required class="form_input">
-        </div>
+            <div class="input_field">
+                <label class="input_label" for="password">Password</label>
+                <input class="input_text" type="password" id="password" name="password" required><br>
+            </div>
 
-        <div class="form_group">
-            <label for="passwordConfirm" class="form_label">Password 확인:</label>
-            <input type="password" id="passwordConfirm" required class="form_input">
-        </div>
+            <div class="input_field">
+                <label class="input_label" for="passwordConfirm">Password 확인</label>
+                <input class="input_text" type="password" id="passwordConfirm" required><br>
+            </div>
 
-        <div class="form_group">
-            <input type="submit" value="회원가입" class="form_submit">
-        </div>
-    </form>
+            <div class="submit_field">
+                <input class="submit_button" type="submit" value="회원가입">
+            </div>
+        </form>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

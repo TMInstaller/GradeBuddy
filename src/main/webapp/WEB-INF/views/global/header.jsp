@@ -12,12 +12,14 @@
                 <a href="${pageContext.request.contextPath}/users/register">회원가입</a>
                 <a href="${pageContext.request.contextPath}/assignments/list">과제</a>
                 <a href="${pageContext.request.contextPath}/submissions/list">제출물</a>
+                <a href="${pageContext.request.contextPath}/feedbacks/list">피드백</a>
             </c:when>
             <c:otherwise>
                 <a href="${pageContext.request.contextPath}/users/profile">내 정보</a>
                 <a href="${pageContext.request.contextPath}/logoutProcess">로그아웃</a>
                 <a href="${pageContext.request.contextPath}/assignments/list">과제</a>
                 <a href="${pageContext.request.contextPath}/submissions/list">제출물</a>
+                <a href="${pageContext.request.contextPath}/feedbacks/list">피드백</a>
             </c:otherwise>
         </c:choose>
     </div>

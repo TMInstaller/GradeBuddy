@@ -9,15 +9,4 @@ import java.util.List;
 
 @Repository
 public class FeedbackDao {
-
-    private final SqlSession sqlSession;
-
-    @Autowired
-    public FeedbackDao(SqlSession sqlSession) {
-        this.sqlSession = sqlSession;
-    }
-
-    public List<Feedback> getAllFeedbacks() {
-        return sqlSession.selectList("getAllFeedbacks");
-    }
 }

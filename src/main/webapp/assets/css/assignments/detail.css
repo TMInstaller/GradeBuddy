@@ -1,0 +1,28 @@
+.content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.assignment_detail {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.assignment_detail th {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+.assignment_detail td {
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+.edit_link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}

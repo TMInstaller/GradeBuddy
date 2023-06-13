@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -53,7 +54,7 @@ public class AssignmentController {
         Submission submission = new Submission();
         submission.setUserId(user.getUser_id());
         submission.setAssignmentId(assignment.getAssignmentId());
-        submission.setSubmissionTime(assignment.getAssignmentDeadline());
+        submission.setSubmissionTime(LocalDateTime.now());
         submissionService.createSubmission(submission);
 
         return "redirect:/assignments/list";

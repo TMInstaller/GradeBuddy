@@ -6,22 +6,31 @@
     <title>AssignmentsDetail</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/assets/css/global/global_setting.css">
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/assets/css/assignments/detail.css">
 </head>
 <body>
 <div class="header">
     <%@ include file="../global/header.jsp" %>
 </div>
 <div class="content">
-    <h1>AssignmentsDetail</h1>
+    <h1>제출 과제 상세 페이지</h1>
     <jsp:useBean id="assignment" scope="request" type="ac.tukorea.gradebuddy.domain.assignments.Assignment"/>
-    <div>
-        <h2>제목: <a href="${pageContext.request.contextPath}/assignments/detail/${assignment.assignmentId}">
-            ${assignment.assignmentTitle}</a>
-        </h2>
-        <p>설명: ${assignment.assignmentDescription}</p>
-        <p>마감기한: ${assignment.assignmentDeadline}</p>
-    </div>
-    <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}">Edit this assignment</a>
+    <table class="assignment_detail">
+        <tr>
+            <th>제출 과제명</th>
+            <td>${assignment.assignmentTitle}</td>
+        </tr>
+        <tr>
+            <th>마감기한</th>
+            <td>${assignment.assignmentDeadline}</td>
+        </tr>
+        <tr>
+            <th>제출 내용</th>
+            <td>${assignment.assignmentDescription}</td>
+        </tr>
+    </table>
+    <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}" class="edit_link">Edit this assignment</a>
 </div>
 </body>
 </html>

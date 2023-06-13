@@ -51,7 +51,10 @@
         $("#emailCheck").click(function (e) {
             e.preventDefault(); // 기본 submit 행위를 중단
             let email = $("#email").val(); // 이메일 필드의 값을 가져옵니다.
-
+            if(email.length === 0) { // 이메일 필드가 비어있으면 경고창을 띄우고 함수를 종료합니다.
+                alert("이메일을 입력해주세요.");
+                return;
+            }
             // AJAX POST 요청을 보냅니다.
             $.ajax({
                 url: "${pageContext.request.contextPath}/checkEmail",

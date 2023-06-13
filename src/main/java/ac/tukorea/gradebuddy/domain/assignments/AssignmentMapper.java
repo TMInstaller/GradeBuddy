@@ -31,7 +31,7 @@ public interface AssignmentMapper {
     Assignment getAssignmentById(Integer assignment_id);
 
     // Read (SELECT) all assignments
-    @Select("SELECT * FROM assignments")
+    @Select("SELECT * FROM assignments ORDER BY assignment_deadline ASC")
     @Results({
             @Result(property = "assignmentId", column = "assignment_id"),
             @Result(property = "userId", column = "user_id"),

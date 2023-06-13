@@ -19,7 +19,7 @@ public interface SubmissionMapper {
     void createSubmission(Submission submission);
 
     // Read All(SELECT)
-    @Select("SELECT * FROM submissions")
+    @Select("SELECT * FROM submissions ORDER BY submission_time DESC")
     @Results({
             @Result(property = "submissionsId", column = "submissions_id"),
             @Result(property = "userId", column = "user_id"),

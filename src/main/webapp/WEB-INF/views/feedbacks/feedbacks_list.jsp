@@ -18,7 +18,7 @@
         <div>
             <h2>FeedbackId: ${feedback.feedbackId}</h2>
             <p>FeedbackScore: ${feedback.feedbackScore}</p>
-            <p>SubmissionId: ${feedback.submissionId}</p>
+            <p>SubmissionId: ${feedback.submissionsId}</p>
             <p>UserId: ${feedback.userId}</p>
             <p>FeedbackComment: ${feedback.feedbackComment}</p>
         </div>

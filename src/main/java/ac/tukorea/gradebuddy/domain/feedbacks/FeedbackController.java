@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -38,8 +39,13 @@ public class FeedbackController {
     public String feedbackCreatePage(@PathVariable("assignmentId") Integer assignmentId, Model model) {
         Submission submission = submissionService.getSubmissionByAssignmentId(assignmentId);
         model.addAttribute("submission", submission);
-        System.out.println(submission);
         return "feedbacks/feedbacks_create";
+    }
+
+    @PostMapping("/feedbacks/create")
+    public String createFeedback(Feedback feedback) {
+        feedbackService.createFeedback(feedback);
+        return "redirect:/feedbacks/list";
     }
 
     @GetMapping("/feedbacks/edit")

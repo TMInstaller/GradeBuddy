@@ -7,16 +7,15 @@ import java.util.List;
 @Mapper
 public interface FeedbackMapper {
     // Create (INSERT)
-    @Insert("INSERT INTO feedbacks (user_id, assignment_id, feedback_title, feedback_description, feedback_date) " +
-            "VALUES (#{userId}, #{assignmentId}, #{feedbackTitle}, #{feedbackDescription}, #{feedbackDate})")
+    @Insert("INSERT INTO feedbacks (user_id, submissions_id, feedback_score, feedback_comment) " +
+            "VALUES (#{userId}, #{submissionsId}, #{feedbackScore}, #{feedbackComment})")
     @Options(useGeneratedKeys = true, keyProperty = "feedbackId")
     @Results({
             @Result(property = "feedbackId", column = "feedback_id"),
+            @Result(property = "submissionsId", column = "submissions_id"),
             @Result(property = "userId", column = "user_id"),
-            @Result(property = "assignmentId", column = "assignment_id"),
-            @Result(property = "feedbackTitle", column = "feedback_title"),
-            @Result(property = "feedbackDescription", column = "feedback_description"),
-            @Result(property = "feedbackDate", column = "feedback_date")
+            @Result(property = "feedbackScore", column = "feedback_score"),
+            @Result(property = "feedbackComment", column = "feedback_comment"),
     })
     void createFeedback(Feedback feedback);
 
@@ -25,10 +24,9 @@ public interface FeedbackMapper {
     @Results({
             @Result(property = "feedbackId", column = "feedback_id"),
             @Result(property = "userId", column = "user_id"),
-            @Result(property = "assignmentId", column = "assignment_id"),
-            @Result(property = "feedbackTitle", column = "feedback_title"),
-            @Result(property = "feedbackDescription", column = "feedback_description"),
-            @Result(property = "feedbackDate", column = "feedback_date")
+            @Result(property = "submissionsId", column = "submissions_id"),
+            @Result(property = "feedbackScore", column = "feedback_score"),
+            @Result(property = "feedbackComment", column = "feedback_comment"),
     })
     List<Feedback> getAllFeedbacks();
 
@@ -37,10 +35,9 @@ public interface FeedbackMapper {
     @Results({
             @Result(property = "feedbackId", column = "feedback_id"),
             @Result(property = "userId", column = "user_id"),
-            @Result(property = "assignmentId", column = "assignment_id"),
-            @Result(property = "feedbackTitle", column = "feedback_title"),
-            @Result(property = "feedbackDescription", column = "feedback_description"),
-            @Result(property = "feedbackDate", column = "feedback_date")
+            @Result(property = "submissionsId", column = "submissions_id"),
+            @Result(property = "feedbackScore", column = "feedback_score"),
+            @Result(property = "feedbackComment", column = "feedback_comment"),
     })
     Feedback getFeedbackById(Integer feedback_id);
 }

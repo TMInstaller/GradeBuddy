@@ -22,4 +22,7 @@ public class SubmissionService {
     public List<Submission> getAllSubmissions() {
         return submissionMapper.getAllSubmissions();
     }
+    public Submission getSubmissionByAssignmentId(Integer assignment_id) {
+        return submissionMapper.getSubmissionByAssignmentId(assignment_id);
+    }
 }

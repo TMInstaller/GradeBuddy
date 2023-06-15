@@ -28,4 +28,14 @@ public interface SubmissionMapper {
     })
     List<Submission> getAllSubmissions();
 
+    // Get submission by using assignmentId(SELECT)
+    @Select("SELECT * FROM submissions WHERE assignment_id = #{assignmentId}")
+    @Results({
+            @Result(property = "submissionsId", column = "submissions_id"),
+            @Result(property = "userId", column = "user_id"),
+            @Result(property = "assignmentId", column = "assignment_id"),
+            @Result(property = "submissionTime", column = "submission_time")
+    })
+    Submission getSubmissionByAssignmentId(Integer assignmentId);
+
 }

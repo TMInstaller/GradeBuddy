@@ -31,10 +31,13 @@
         </tr>
     </table>
     <c:if test="${assignment.userId == sessionScope.user.user_id}">
-        <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}" class="edit_link">Edit
-            this assignment</a>
+        <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}" class="edit_link">
+            내용 수정하기
+        </a>
     </c:if>
-
+    <a href="${pageContext.request.contextPath}/feedbacks/create/${assignment.assignmentId}" class="edit_link">
+        의견 남기기
+    </a>
 </div>
 </body>
 </html>

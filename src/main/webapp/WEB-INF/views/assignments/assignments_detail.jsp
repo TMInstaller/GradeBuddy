@@ -30,7 +30,11 @@
             <td>${assignment.assignmentDescription}</td>
         </tr>
     </table>
-    <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}" class="edit_link">Edit this assignment</a>
+    <c:if test="${assignment.userId == sessionScope.user.user_id}">
+        <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}" class="edit_link">Edit
+            this assignment</a>
+    </c:if>
+
 </div>
 </body>
 </html>

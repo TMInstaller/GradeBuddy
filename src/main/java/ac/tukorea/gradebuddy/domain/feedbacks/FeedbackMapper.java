@@ -41,7 +41,7 @@ public interface FeedbackMapper {
     })
     Feedback getFeedbackById(Integer feedback_id);
 
-    // 받은 assignment_id에 매칭되는 submission_id가 있는 경우 그 feedback 들을 반환
+    // Read (SELECT) 받은 assignment_id에 매칭되는 submission_id가 있는 경우 그 feedback 들을 반환
     @Select("SELECT * FROM feedbacks WHERE submissions_id IN (SELECT submissions_id FROM submissions WHERE assignment_id = #{assignment_id})")
     @Results({
             @Result(property = "feedbackId", column = "feedback_id"),
@@ -51,4 +51,5 @@ public interface FeedbackMapper {
             @Result(property = "feedbackComment", column = "feedback_comment"),
     })
     List<Feedback> getFeedbacksByAssignmentId(Integer assignment_id);
+
 }

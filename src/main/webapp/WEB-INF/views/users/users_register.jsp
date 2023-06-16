@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>회원가입</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/assets/css/global/global_setting.css">
     <link rel="stylesheet" type="text/css"

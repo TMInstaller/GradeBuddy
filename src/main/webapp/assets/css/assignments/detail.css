@@ -1,28 +1,69 @@
+/* Styles for the content area */
 .content {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
+/* Styles for the assignment detail table */
 .assignment_detail {
-    border-collapse: collapse;
     width: 100%;
-    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.assignment_detail th,
+.assignment_detail td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
 }
 
 .assignment_detail th {
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #dddddd;
+    background-color: #f8f9fa;
 }
 
-.assignment_detail td {
-    padding: 10px;
-    border: 1px solid #dddddd;
-}
-
+/* Styles for edit link */
 .edit_link {
     display: inline-block;
-    margin-top: 20px;
-    color: #007bff;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
     text-decoration: none;
+    border-radius: 4px;
+}
+
+.edit_link:hover {
+    background-color: #0056b3;
+}
+
+/* Feedback list styles */
+.feedback-list-container {
+    margin-top: 20px;
+}
+
+.feedback-item {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.feedback-user {
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.feedback-content {
+    margin-top: 8px;
+}
+
+.feedback-comment {
+    margin-bottom: 4px;
+}
+
+.feedback-score {
+    font-size: 0.9em;
+    color: #6c757d;
 }

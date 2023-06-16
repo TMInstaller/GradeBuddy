@@ -15,31 +15,51 @@
 </div>
 <div class="content">
     <h1>제출 과제 상세 페이지</h1>
-    <jsp:useBean id="assignment" scope="request" type="ac.tukorea.gradebuddy.domain.assignments.Assignment"/>
-    <table class="assignment_detail">
-        <tr>
-            <th>제출 과제명</th>
-            <td>${assignment.assignmentTitle}</td>
-        </tr>
-        <tr>
-            <th>마감기한</th>
-            <td>${assignment.assignmentDeadline}</td>
-        </tr>
-        <tr>
-            <th>제출 내용</th>
-            <td>${assignment.assignmentDescription}</td>
-        </tr>
-    </table>
-    <c:if test="${assignment.userId == sessionScope.user.user_id}">
-        <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}" class="edit_link">
-            내용 수정하기
+    <div>
+        <jsp:useBean id="assignment" scope="request" type="ac.tukorea.gradebuddy.domain.assignments.Assignment"/>
+        <table class="assignment_detail">
+            <tr>
+                <th>제출 과제명</th>
+                <td>${assignment.assignmentTitle}</td>
+            </tr>
+            <tr>
+                <th>마감기한</th>
+                <td>${assignment.assignmentDeadline}</td>
+            </tr>
+            <tr>
+                <th>제출 내용</th>
+                <td>${assignment.assignmentDescription}</td>
+            </tr>
+        </table>
+        <c:if test="${assignment.userId == sessionScope.user.user_id}">
+            <a href="${pageContext.request.contextPath}/assignments/edit/${assignment.assignmentId}" class="edit_link">
+                내용 수정하기
+            </a>
+        </c:if>
+        <a href="${pageContext.request.contextPath}/feedbacks/create/${assignment.assignmentId}" class="edit_link">
+            의견 남기기
         </a>
-    </c:if>
-    <a href="${pageContext.request.contextPath}/feedbacks/create/${assignment.assignmentId}" class="edit_link">
-        의견 남기기
-    </a>
+    </div>
 
-    <%--댓글 형태로 해당 관련 의견들 모아보는 댓글과 점수 보기 형태로 남겨두기--%>
+    <div>
+        <%--댓글 형태로 해당 관련 의견들 모아보는 댓글과 점수 보기 형태로 남겨두기--%>
+        <jsp:useBean id="feedbacks" scope="request" type="java.util.List"/>
+        <c:if test="${not empty feedbacks}">
+            <h2>과제에 대한 의견</h2>
+            <div class="feedback-list-container">
+                <c:forEach items="${feedbacks}" var="feedback">
+                    <div class="feedback-item">
+                        <div class="feedback-user">User 식별번호 : ${feedback.userId}</div>
+                        <div class="feedback-content">
+                            <div class="feedback-score">점수: ${feedback.feedbackScore}</div>
+                            <br>
+                            <div class="feedback-comment">의견 : ${feedback.feedbackComment}</div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </c:if>
+    </div>
 
 </div>
 </body>

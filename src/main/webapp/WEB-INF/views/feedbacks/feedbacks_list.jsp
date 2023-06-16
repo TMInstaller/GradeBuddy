@@ -6,6 +6,8 @@
     <title>FeedbacksList</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/assets/css/global/global_setting.css">
+    <link rel="stylesheet" type="text/css"
+            href="${pageContext.request.contextPath}/assets/css/feedbacks/list.css">
 </head>
 <body>
 <div class="header">
@@ -14,15 +16,24 @@
 <div class="content">
     <h1>FeedbacksList</h1>
     <jsp:useBean id="feedbacks" scope="request" type="java.util.List"/>
-    <c:forEach var="feedback" items="${feedbacks}">
-        <div>
-            <h2>FeedbackId: ${feedback.feedbackId}</h2>
-            <p>FeedbackScore: ${feedback.feedbackScore}</p>
-            <p>SubmissionId: ${feedback.submissionsId}</p>
-            <p>UserId: ${feedback.userId}</p>
-            <p>FeedbackComment: ${feedback.feedbackComment}</p>
-        </div>
-    </c:forEach>
+    <table class="table">
+        <tr>
+            <th>Feedback Id</th>
+            <th>Feedback Score</th>
+            <th>Submission Id</th>
+            <th>User Id</th>
+            <th>Feedback Comment</th>
+        </tr>
+        <c:forEach var="feedback" items="${feedbacks}">
+            <tr>
+                <td>${feedback.feedbackId}</td>
+                <td>${feedback.feedbackScore}</td>
+                <td>${feedback.submissionsId}</td>
+                <td>${feedback.userId}</td>
+                <td>${feedback.feedbackComment}</td>
+            </tr>
+        </c:forEach>
+    </table>
 </div>
 </body>
 </html>

@@ -20,7 +20,7 @@ public interface FeedbackMapper {
     void createFeedback(Feedback feedback);
 
     // Read All (SELECT)
-    @Select("SELECT * FROM feedbacks")
+    @Select("SELECT * FROM feedbacks ORDER BY feedback_id DESC")
     @Results({
             @Result(property = "feedbackId", column = "feedback_id"),
             @Result(property = "userId", column = "user_id"),

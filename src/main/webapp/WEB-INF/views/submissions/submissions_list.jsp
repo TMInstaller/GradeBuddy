@@ -6,6 +6,8 @@
     <title>SubmissionList</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/assets/css/global/global_setting.css">
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/assets/css/submissions/list.css">
 </head>
 <body>
 <div class="header">
@@ -14,14 +16,26 @@
 <div class="content">
     <h1>SubmissionsList</h1>
     <jsp:useBean id="submissions" scope="request" type="java.util.List"/>
-    <c:forEach var="submission" items="${submissions}">
-        <div>
-            <h2>제출정보 ID: ${submission.submissionsId}</h2>
-            <p>제출자 ID: ${submission.userId}</p>
-            <p>과제 ID: ${submission.assignmentId}</p>
-            <p>제출시간: ${submission.submissionTime}</p>
-        </div>
-    </c:forEach>
+    <table class="styled-table">
+        <thead>
+        <tr>
+            <th>제출정보 ID</th>
+            <th>제출자 ID</th>
+            <th>과제 ID</th>
+            <th>제출시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="submission" items="${submissions}">
+            <tr>
+                <td>${submission.submissionsId}</td>
+                <td>${submission.userId}</td>
+                <td>${submission.assignmentId}</td>
+                <td>${submission.submissionTime}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

@@ -26,4 +26,8 @@ public class FeedbackService {
     public List<Feedback> getAllFeedbacks() {
         return feedbackMapper.getAllFeedbacks();
     }
+
+    public List<Feedback> getFeedbacksByAssignmentId(Integer assignment_id) {
+        return feedbackMapper.getFeedbacksByAssignmentId(assignment_id);
+    }
 }

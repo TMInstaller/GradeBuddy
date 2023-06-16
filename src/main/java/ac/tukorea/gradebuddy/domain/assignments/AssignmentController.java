@@ -1,6 +1,8 @@
 // Controller: 사용자의 요청을 받아 해당 요청을 처리하기 위한 비즈니스 로직을 서비스에 위임하고, 처리 결과를 사용자에게 응답으로 반환합니다.
 package ac.tukorea.gradebuddy.domain.assignments;
 
+import ac.tukorea.gradebuddy.domain.feedbacks.Feedback;
+import ac.tukorea.gradebuddy.domain.feedbacks.FeedbackService;
 import ac.tukorea.gradebuddy.domain.submissions.Submission;
 import ac.tukorea.gradebuddy.domain.submissions.SubmissionService;
 import ac.tukorea.gradebuddy.domain.users.User;
@@ -18,11 +20,13 @@ public class AssignmentController {
 
     private final AssignmentService assignmentService;
     private final SubmissionService submissionService;
+    private final FeedbackService feedbackService;
 
     @Autowired
-    public AssignmentController(AssignmentService assignmentService , SubmissionService submissionService) {
+    public AssignmentController(AssignmentService assignmentService , SubmissionService submissionService , FeedbackService feedbackService) {
         this.assignmentService = assignmentService;
         this.submissionService = submissionService;
+        this.feedbackService = feedbackService;
     }
 
     @GetMapping("/assignments/list")
@@ -36,6 +40,10 @@ public class AssignmentController {
     public String assignmentDetailPage(@PathVariable Integer id, Model model) {
         Assignment assignment = assignmentService.getAssignmentById(id);
         model.addAttribute("assignment", assignment);
+
+        List<Feedback> feedbacks = feedbackService.getFeedbacksByAssignmentId(id);
+        model.addAttribute("feedbacks", feedbacks);
+
         return "assignments/assignments_detail";
     }
 

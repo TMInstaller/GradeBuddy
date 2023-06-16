@@ -38,6 +38,9 @@
     <a href="${pageContext.request.contextPath}/feedbacks/create/${assignment.assignmentId}" class="edit_link">
         의견 남기기
     </a>
+
+    <%--댓글 형태로 해당 관련 의견들 모아보는 댓글과 점수 보기 형태로 남겨두기--%>
+
 </div>
 </body>
 </html>

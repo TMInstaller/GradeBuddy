@@ -10,16 +10,15 @@
             <c:when test="${empty sessionScope.user}">
                 <a href="${pageContext.request.contextPath}/users/login">로그인</a>
                 <a href="${pageContext.request.contextPath}/users/register">회원가입</a>
-                <a href="${pageContext.request.contextPath}/assignments/list">과제</a>
-                <a href="${pageContext.request.contextPath}/submissions/list">제출기록</a>
-                <a href="${pageContext.request.contextPath}/feedbacks/list">피드백</a>
             </c:when>
             <c:otherwise>
                 <a href="${pageContext.request.contextPath}/users/profile">${sessionScope.user.username}님</a>
                 <a href="${pageContext.request.contextPath}/logoutProcess">로그아웃</a>
                 <a href="${pageContext.request.contextPath}/assignments/list">과제</a>
-                <a href="${pageContext.request.contextPath}/submissions/list">제출물</a>
                 <a href="${pageContext.request.contextPath}/feedbacks/list">피드백</a>
+                <c:if test="${sessionScope.user.username == 'admin'}">
+                    <a href="${pageContext.request.contextPath}/submissions/list">제출기록(관리자)</a>
+                </c:if>
             </c:otherwise>
         </c:choose>
     </div>

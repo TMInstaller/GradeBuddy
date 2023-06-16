@@ -1,0 +1,86 @@
+.star {
+    width: 30px;
+    height: 30px;
+    margin: 1px;
+    background-color: #ddd;
+    clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+    );
+}
+
+.star:hover,
+.star:hover ~ .star,
+.star:checked,
+.star:checked ~ .star {
+    background-color: #ffc700;
+}
+
+/* 컨텐츠 영역 */
+.content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 폼의 그룹 */
+.form_group {
+    margin-bottom: 20px;
+}
+
+/* 레이블 스타일 */
+.form_label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* 입력 요소 스타일 */
+.form_input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* 텍스트 영역 스타일 */
+textarea.form_input {
+    height: 100px;
+    resize: vertical;
+}
+
+/* 별점 영역 */
+.stars {
+    display: flex;
+    direction: rtl;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 제출 버튼 스타일 */
+.form_submit {
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+/* 제출 버튼 호버 시 */
+.form_submit:hover {
+    background-color: #2980b9;
+}

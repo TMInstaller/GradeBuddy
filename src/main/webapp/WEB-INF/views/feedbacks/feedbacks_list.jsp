@@ -27,7 +27,20 @@
         <c:forEach var="feedback" items="${feedbacks}">
             <tr>
                 <td>${feedback.feedbackId}</td>
-                <td>${feedback.feedbackScore}</td>
+                <td>
+                    <div class="stars">
+                        <input class="star star-5" id="star-5-${feedback.feedbackId}" type="radio" <c:if test="${feedback.feedbackScore >= 5}">checked</c:if> disabled/>
+                        <label class="star star-5" for="star-5-${feedback.feedbackId}"></label>
+                        <input class="star star-4" id="star-4-${feedback.feedbackId}" type="radio" <c:if test="${feedback.feedbackScore >= 4}">checked</c:if> disabled/>
+                        <label class="star star-4" for="star-4-${feedback.feedbackId}"></label>
+                        <input class="star star-3" id="star-3-${feedback.feedbackId}" type="radio" <c:if test="${feedback.feedbackScore >= 3}">checked</c:if> disabled/>
+                        <label class="star star-3" for="star-3-${feedback.feedbackId}"></label>
+                        <input class="star star-2" id="star-2-${feedback.feedbackId}" type="radio" <c:if test="${feedback.feedbackScore >= 2}">checked</c:if> disabled/>
+                        <label class="star star-2" for="star-2-${feedback.feedbackId}"></label>
+                        <input class="star star-1" id="star-1-${feedback.feedbackId}" type="radio" <c:if test="${feedback.feedbackScore >= 1}">checked</c:if> disabled/>
+                        <label class="star star-1" for="star-1-${feedback.feedbackId}"></label>
+                    </div>
+                </td>
                 <td>${feedback.submissionsId}</td>
                 <td>${feedback.userId}</td>
                 <td>${feedback.feedbackComment}</td>

@@ -26,3 +26,33 @@
     background-color: #4CAF50;
     color: white;
 }
+
+/* 별점 스타일링 */
+.stars {
+    display: inline-block;
+    direction: rtl;
+    font-size: 1.5em;
+}
+
+.stars .star {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.stars .star:before {
+    content: '☆';
+    color: #ffc700;
+}
+
+.stars .star:checked ~ .star:before {
+    content: '★';
+    color: #ffc700;
+}
+
+.stars input[type="radio"] {
+    display: none;
+}

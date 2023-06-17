@@ -82,7 +82,7 @@ public class AssignmentController {
         return assignment;
     }
 
-    @GetMapping("/assignments/delete/{id}")
+    @DeleteMapping("/assignments/delete/{id}")
     public String deleteAssignment(@PathVariable Integer id) {
         assignmentService.deleteAssignment(id);
         return "redirect:/assignments/list";

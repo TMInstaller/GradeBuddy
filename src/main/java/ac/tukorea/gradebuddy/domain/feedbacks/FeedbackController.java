@@ -6,6 +6,7 @@ import ac.tukorea.gradebuddy.domain.submissions.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,5 +52,11 @@ public class FeedbackController {
     @GetMapping("/feedbacks/edit")
     public String feedbackEditPage() {
         return "feedbacks/feedbacks_edit";
+    }
+
+    @GetMapping("/feedbacks/delete/{feedbackId}")
+    public String deleteFeedback(@PathVariable("feedbackId") Integer feedbackId) {
+        feedbackService.deleteFeedbackById(feedbackId);
+        return "redirect:/feedbacks/list";
     }
 }

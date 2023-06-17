@@ -52,4 +52,7 @@ public interface FeedbackMapper {
     })
     List<Feedback> getFeedbacksByAssignmentId(Integer assignment_id);
 
+    // Delete (DELETE)
+    @Delete("DELETE FROM feedbacks WHERE feedback_id = #{feedbackId}")
+    void deleteFeedbackById(Integer feedbackId);
 }

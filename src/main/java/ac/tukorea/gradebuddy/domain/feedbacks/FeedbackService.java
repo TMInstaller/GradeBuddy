@@ -30,4 +30,8 @@ public class FeedbackService {
     public List<Feedback> getFeedbacksByAssignmentId(Integer assignment_id) {
         return feedbackMapper.getFeedbacksByAssignmentId(assignment_id);
     }
+
+    public void deleteFeedbackById(Integer feedbackId) {
+        feedbackMapper.deleteFeedbackById(feedbackId);
+    }
 }

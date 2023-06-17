@@ -23,6 +23,12 @@
             <th>Submission Id</th>
             <th>User Id</th>
             <th>Feedback Comment</th>
+            <c:if test="${sessionScope.user.username == 'admin'}">
+                <th>삭제하기(관리자)</th>
+            </c:if>
+            <c:if test="${sessionScope.user.username != 'admin'}">
+                <th></th>
+            </c:if>
         </tr>
         <c:forEach var="feedback" items="${feedbacks}">
             <tr>
@@ -44,6 +50,11 @@
                 <td>${feedback.submissionsId}</td>
                 <td>${feedback.userId}</td>
                 <td>${feedback.feedbackComment}</td>
+                <td>
+                    <c:if test="${sessionScope.user.username == 'admin'}">
+                        <a href="${pageContext.request.contextPath}/feedbacks/delete/${feedback.feedbackId}">의견 삭제하기</a>
+                    </c:if>
+                </td>
             </tr>
         </c:forEach>
     </table>

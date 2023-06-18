@@ -55,6 +55,6 @@ public interface AssignmentMapper {
     void updateAssignment(Assignment assignment);
 
     // Delete (DELETE)
-    @Delete("DELETE FROM assignments WHERE assignment_id = #{assignment_id}")
-    void deleteAssignment(@Param("assignment_id") Integer assignment_id);
+    @Delete("DELETE FROM assignments WHERE assignment_id = #{assignmentId}")
+    void deleteAssignment(@Param("assignmentId") Integer assignmentId);
 }

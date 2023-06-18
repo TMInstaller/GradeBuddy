@@ -32,7 +32,7 @@ public class AssignmentService {
         assignmentMapper.updateAssignment(assignment);
     }
 
-    public void deleteAssignment(Integer assignment_id) {
-        assignmentMapper.deleteAssignment(assignment_id);
+    public void deleteAssignment(Integer assignmentId) {
+        assignmentMapper.deleteAssignment(assignmentId);
     }
 }

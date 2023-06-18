@@ -23,6 +23,12 @@
             <th>제출 과제명</th>
             <th>내용</th>
             <th>마감기한</th>
+            <c:if test="${sessionScope.user.username == 'admin'}">
+                <th>과제 삭제<br>(관리자)</th>
+            </c:if>
+            <c:if test="${sessionScope.user.username != 'admin'}">
+                <th></th>
+            </c:if>
         </tr>
         </thead>
         <tbody>
@@ -31,6 +37,11 @@
                 <td class="description"><a href="${pageContext.request.contextPath}/assignments/detail/${assignment.assignmentId}">${assignment.assignmentTitle}</a></td>
                 <td class="description">${assignment.assignmentDescription}</td>
                 <td>${assignment.assignmentDeadline}</td>
+                <td>
+                    <c:if test="${sessionScope.user.username == 'admin'}">
+                        <a href="${pageContext.request.contextPath}/assignments/delete/${assignment.assignmentId}">삭제</a>
+                    </c:if>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

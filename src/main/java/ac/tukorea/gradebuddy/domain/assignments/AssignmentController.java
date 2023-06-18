@@ -84,6 +84,8 @@ public class AssignmentController {
 
     @GetMapping("/assignments/delete/{assignmentId}")
     public String deleteAssignment(@PathVariable Integer assignmentId) {
+        // 왜래키 제약으로 인해 제출 정보를 먼저 삭제해야 한다
+        submissionService.deleteSubmissionByAssignmentId(assignmentId);
         assignmentService.deleteAssignment(assignmentId);
         return "redirect:/assignments/list";
     }

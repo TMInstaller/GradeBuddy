@@ -25,4 +25,8 @@ public class SubmissionService {
     public Submission getSubmissionByAssignmentId(Integer assignment_id) {
         return submissionMapper.getSubmissionByAssignmentId(assignment_id);
     }
+
+    public void deleteSubmissionByAssignmentId(Integer assignmentId) {
+        submissionMapper.deleteSubmissionByAssignmentId(assignmentId);
+    }
 }

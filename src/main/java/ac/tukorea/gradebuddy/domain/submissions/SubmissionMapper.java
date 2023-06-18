@@ -38,4 +38,6 @@ public interface SubmissionMapper {
     })
     Submission getSubmissionByAssignmentId(Integer assignmentId);
 
+    @Delete("DELETE FROM submissions WHERE assignment_id = #{assignmentId}")
+    void deleteSubmissionByAssignmentId(Integer assignmentId);
 }

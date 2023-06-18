@@ -42,7 +42,7 @@
             </a>
         </c:if>
         <c:if test="${sessionScope.user.username == 'admin'}">
-            <a href="${pageContext.request.contextPath}/assignments/delete">제출내용 삭제하기(관리자)</a>
+            <a href="${pageContext.request.contextPath}/assignments/delete/${assignment.assignmentId}">제출내용 삭제하기(관리자)</a>
         </c:if>
     </div>
 

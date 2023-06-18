@@ -1,5 +1,6 @@
 <!--이 페이지는 사용자가 새로운 계정을 생성할 수 있는 폼을 제공합니다.-->
 <%-- users/register --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,6 @@
                 <label class="input_label" for="passwordConfirm">Password 확인</label>
                 <input class="input_text" type="password" id="passwordConfirm" required><br>
             </div>
-
             <div class="submit_field">
                 <input class="submit_button" type="submit" value="회원가입">
             </div>
@@ -70,6 +70,19 @@
                     }
                 }
             });
+        });
+        $('#password, #passwordConfirm').on('keyup', function () {
+            let password = $('#password').val();
+            let passwordConfirm = $('#passwordConfirm').val();
+            if (password.length !== 0 && password === passwordConfirm) {
+                $('.submit_button')
+                    .attr('disabled', false)
+                    .css('background-color', '#4CAF50');
+            } else {
+                $('.submit_button')
+                    .attr('disabled', 'disabled')
+                    .css('background-color', '#e0e0e0');
+            }
         });
     });
 </script>

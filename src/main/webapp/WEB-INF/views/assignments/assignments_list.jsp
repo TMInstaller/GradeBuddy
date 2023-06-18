@@ -34,7 +34,11 @@
         <tbody>
         <c:forEach var="assignment" items="${assignments}">
             <tr>
-                <td class="description"><a href="${pageContext.request.contextPath}/assignments/detail/${assignment.assignmentId}">${assignment.assignmentTitle}</a></td>
+                <td class="description">
+                    <a href="${pageContext.request.contextPath}/assignments/detail/${assignment.assignmentId}">
+                            ${assignment.assignmentTitle}
+                    </a>
+                </td>
                 <td class="description">${assignment.assignmentDescription}</td>
                 <td>${assignment.assignmentDeadline}</td>
                 <td>

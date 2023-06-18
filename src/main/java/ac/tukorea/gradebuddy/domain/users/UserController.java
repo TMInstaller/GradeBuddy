@@ -67,7 +67,7 @@ public class UserController {
         // 이미 존재하는 이메일인지 체크
         if (userService.findUserByEmail(user.getEmail()) != null) {
             // 이미 존재하는 이메일인 경우 에러 처리를 하고 다시 회원 가입 페이지로 리다이렉트
-            return "redirect:/users/register?error=true";
+            return "redirect:/users/register";
         }
 
         // 새로운 사용자를 데이터베이스에 추가

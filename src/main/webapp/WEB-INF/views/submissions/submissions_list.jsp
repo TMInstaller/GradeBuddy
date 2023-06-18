@@ -14,7 +14,7 @@
     <%@ include file="../global/header.jsp"%>
 </div>
 <div class="content">
-    <h1>SubmissionsList</h1>
+    <h1>제출기록(관리자 페이지)</h1>
     <jsp:useBean id="submissions" scope="request" type="java.util.List"/>
     <table class="styled-table">
         <thead>
@@ -30,7 +30,7 @@
             <tr>
                 <td>${submission.submissionsId}</td>
                 <td>${submission.userId}</td>
-                <td>${submission.assignmentId}</td>
+                <td><a href="${pageContext.request.contextPath}/assignments/detail/${submission.assignmentId}">${submission.assignmentId}</a></td>
                 <td>${submission.submissionTime}</td>
             </tr>
         </c:forEach>

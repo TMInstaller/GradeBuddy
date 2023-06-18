@@ -36,9 +36,11 @@
                 내용 수정하기
             </a>
         </c:if>
-        <a href="${pageContext.request.contextPath}/feedbacks/create/${assignment.assignmentId}" class="edit_link">
-            의견 남기기
-        </a>
+        <c:if test="${!sessionScope.user.user_id.equals(assignment.userId)}">
+            <a href="${pageContext.request.contextPath}/feedbacks/create/${assignment.assignmentId}" class="edit_link">
+                의견 남기기
+            </a>
+        </c:if>
         <c:if test="${sessionScope.user.username == 'admin'}">
             <a href="${pageContext.request.contextPath}/assignments/delete">제출내용 삭제하기(관리자)</a>
         </c:if>

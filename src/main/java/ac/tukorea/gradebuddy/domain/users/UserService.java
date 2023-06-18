@@ -4,6 +4,9 @@ package ac.tukorea.gradebuddy.domain.users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class UserService {
     private final UserMapper userMapper;
@@ -23,6 +26,10 @@ public class UserService {
 
     public void createUser(User user) {
         userMapper.createUser(user);
+    }
+
+    public List<Map<String, Object>> getTop5UserScore() {
+        return userMapper.getTop5UserScore();
     }
 
     public void updateUser(User user) {

@@ -1,0 +1,30 @@
+.top-rank-dashboard {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.top-rank-dashboard h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-rank-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.top-rank-table th, .top-rank-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-rank-table tr:last-child td {
+    border-bottom: none;
+}
+
+.rank {
+    font-weight: bold;
+}

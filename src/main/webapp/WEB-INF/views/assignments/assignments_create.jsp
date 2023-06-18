@@ -16,11 +16,11 @@
     <form action="${pageContext.request.contextPath}/assignments/create" method="post">
         <input type="hidden" id="userId" value="${sessionScope.user.user_id}">
         <label for="title">Title</label>
-        <input type="text" name="assignmentTitle" id="title" placeholder="title">
+        <input type="text" name="assignmentTitle" id="title" placeholder="title" required>
         <label for="content">Content</label>
-        <input type="text" name="assignmentDescription" id="content" placeholder="content">
+        <input type="text" name="assignmentDescription" id="content" placeholder="content" required>
         <label for="deadline">Deadline</label>
-        <input type="datetime-local" name="assignmentDeadline" id="deadline" placeholder="deadline">
+        <input type="datetime-local" name="assignmentDeadline" id="deadline" placeholder="deadline" required>
         <input type="submit" value="Create">
     </form>
 </div>

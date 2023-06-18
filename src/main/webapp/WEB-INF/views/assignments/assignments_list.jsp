@@ -37,6 +37,9 @@
                 <td class="description">
                     <a href="${pageContext.request.contextPath}/assignments/detail/${assignment.assignmentId}">
                             ${assignment.assignmentTitle}
+                        <c:if test="${sessionScope.user.user_id == assignment.userId}">
+                            <br>(My Assignment)
+                        </c:if>
                     </a>
                 </td>
                 <td class="description">${assignment.assignmentDescription}</td>

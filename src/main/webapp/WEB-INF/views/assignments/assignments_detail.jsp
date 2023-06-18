@@ -14,9 +14,14 @@
     <%@ include file="../global/header.jsp" %>
 </div>
 <div class="content">
-    <h1>제출 과제 상세 페이지</h1>
+    <jsp:useBean id="assignment" scope="request" type="ac.tukorea.gradebuddy.domain.assignments.Assignment"/>
+    <h1>
+        제출 과제 상세 페이지
+        <c:if test="${sessionScope.user.user_id == assignment.userId}">
+            (My Assignment)
+        </c:if>
+    </h1>
     <div>
-        <jsp:useBean id="assignment" scope="request" type="ac.tukorea.gradebuddy.domain.assignments.Assignment"/>
         <table class="assignment_detail">
             <tr>
                 <th>제출 과제명</th>
@@ -42,7 +47,8 @@
             </a>
         </c:if>
         <c:if test="${sessionScope.user.username == 'admin'}">
-            <a href="${pageContext.request.contextPath}/assignments/delete/${assignment.assignmentId}">제출내용 삭제하기(관리자)</a>
+            <a href="${pageContext.request.contextPath}/assignments/delete/${assignment.assignmentId}">제출내용
+                삭제하기(관리자)</a>
         </c:if>
     </div>
 
